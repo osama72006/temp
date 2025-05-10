@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>صورة مؤقتة</title>
+  <style>
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    img {
+      max-width: 90%;
+      max-height: 90%;
+      pointer-events: none;
+      -webkit-user-drag: none;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <img id="tempImage" src="IMG20250207164348.jpg" alt="Temporary Image" />
+
+  <script>
+    // حذف الصورة بعد 60 ثانية
+    setTimeout(() => {
+      const img = document.getElementById("tempImage");
+      if (img) img.remove();
+    }, 10000);
+
+    // منع كليك يمين
+    window.addEventListener("contextmenu", e => e.preventDefault());
+  </script>
+</body>
+</html>
